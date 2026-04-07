@@ -13,8 +13,7 @@ export default function Slide07() {
         </h2>
 
         <div className="flex gap-8 mt-10">
-          {/* Etapa 1 */}
-          <div className="flex-1 bg-slide-mid rounded-xl overflow-hidden shadow-lg shadow-black/20">
+          <div className="flex-1 bg-slide-mid rounded-xl overflow-hidden shadow-lg shadow-[hsl(270,80%,20%)]/30">
             <div className="h-1 bg-slide-primary" />
             <div className="p-8">
               <h3 className="text-[34px] font-bold text-foreground mb-6">01 &nbsp;Problema Claro</h3>
@@ -29,8 +28,7 @@ export default function Slide07() {
             </div>
           </div>
 
-          {/* Etapa 2 */}
-          <div className="flex-1 bg-slide-mid rounded-xl overflow-hidden shadow-lg shadow-black/20">
+          <div className="flex-1 bg-slide-mid rounded-xl overflow-hidden shadow-lg shadow-[hsl(270,80%,20%)]/30">
             <div className="h-1 bg-slide-accent" />
             <div className="p-8">
               <h3 className="text-[34px] font-bold text-foreground mb-6">02 &nbsp;Quick Wins</h3>

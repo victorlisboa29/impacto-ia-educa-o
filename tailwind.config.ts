@@ -61,6 +61,8 @@ export default {
           amber: "hsl(var(--slide-amber))",
           red: "hsl(var(--slide-red))",
           orange: "hsl(var(--slide-orange))",
+          magenta: "hsl(var(--slide-magenta))",
+          "magenta-light": "hsl(var(--slide-magenta-light))",
           purple: "hsl(var(--slide-purple))",
           "text-light": "hsl(var(--slide-text-light))",
           "text-muted": "hsl(var(--slide-text-muted))",
