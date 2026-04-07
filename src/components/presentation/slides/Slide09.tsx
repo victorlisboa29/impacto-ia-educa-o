@@ -13,8 +13,7 @@ export default function Slide09() {
         </h2>
 
         <div className="flex gap-8 mt-10">
-          {/* Before */}
-          <div className="flex-1 bg-slide-mid rounded-xl p-8 shadow-lg shadow-black/20">
+          <div className="flex-1 bg-slide-mid rounded-xl p-8 shadow-lg shadow-[hsl(270,80%,20%)]/30">
             <p className="text-[22px] font-bold tracking-[0.15em] text-slide-red mb-6">ANTES</p>
             <ul className="space-y-4">
               {before.map((t) => (
@@ -26,8 +25,7 @@ export default function Slide09() {
             </ul>
           </div>
 
-          {/* After */}
-          <div className="flex-1 bg-[hsl(150,40%,12%)] rounded-xl p-8 shadow-lg shadow-black/20">
+          <div className="flex-1 bg-[hsl(150,40%,10%)] rounded-xl p-8 shadow-lg shadow-black/20">
             <p className="text-[22px] font-bold tracking-[0.15em] text-slide-green mb-6">DEPOIS</p>
             <ul className="space-y-4">
               {after.map((t) => (

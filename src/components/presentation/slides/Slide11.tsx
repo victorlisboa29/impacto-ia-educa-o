@@ -3,7 +3,7 @@ import SlideLayout from "../SlideLayout";
 export default function Slide11() {
   return (
     <SlideLayout variant="accent">
-      <div className="absolute -top-10 -left-20 w-[500px] h-[500px] rounded-full border border-white/5" />
+      <div className="absolute -top-10 -left-20 w-[500px] h-[500px] rounded-full bg-slide-magenta/8 blur-3xl" />
 
       <div className="px-20 flex flex-col justify-center h-full">
         <p className="text-[26px] font-bold tracking-[0.2em] text-slide-accent-light uppercase mb-10">Mensagem Final</p>
@@ -12,9 +12,9 @@ export default function Slide11() {
           IA não é sobre<br />tecnologia.
         </h2>
 
-        <div className="w-32 h-1 bg-slide-cyan mt-8" />
+        <div className="w-32 h-1 bg-gradient-to-r from-slide-magenta to-slide-primary mt-8" />
 
-        <p className="mt-8 text-[72px] font-black text-slide-cyan-light leading-[0.95]">
+        <p className="mt-8 text-[72px] font-black text-slide-magenta-light leading-[0.95]">
           É sobre execução.
         </p>
 
