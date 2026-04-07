@@ -14,7 +14,7 @@ export default function Slide01() {
         <div className="w-16 h-1 bg-slide-magenta mb-8" />
 
         <h1 className="text-[88px] font-black leading-[0.95] tracking-tight text-foreground">
-          IA Generativa<br />na Educação
+          IA na Educação
         </h1>
 
         <p className="mt-8 text-[40px] font-light text-slide-accent-light">
