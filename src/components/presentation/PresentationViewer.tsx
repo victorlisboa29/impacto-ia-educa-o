@@ -2,6 +2,9 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, Maximize, Minimize, Grid } from "lucide-react";
 
 import Slide01 from "./slides/Slide01";
+import SlideNuage from "./slides/SlideNuage";
+import SlideOfertas from "./slides/SlideOfertas";
+import SlideBeneficios from "./slides/SlideBeneficios";
 import Slide02 from "./slides/Slide02";
 import Slide03 from "./slides/Slide03";
 import Slide04 from "./slides/Slide04";
@@ -14,13 +17,15 @@ import Slide10 from "./slides/Slide10";
 import Slide11 from "./slides/Slide11";
 import Slide12 from "./slides/Slide12";
 
-const slides = [Slide01, Slide02, Slide03, Slide04, Slide05, Slide06, Slide07, Slide08, Slide09, Slide10, Slide11, Slide12];
+const slides = [Slide01, SlideNuage, SlideOfertas, SlideBeneficios, Slide02, Slide03, Slide04, Slide05, Slide06, Slide07, Slide08, Slide09, Slide10, Slide11, Slide12];
 
 export default function PresentationViewer() {
   const [current, setCurrent] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showGrid, setShowGrid] = useState(false);
   const [scale, setScale] = useState(1);
+  const [direction, setDirection] = useState<"right" | "left">("right");
+  const [animKey, setAnimKey] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -47,9 +52,9 @@ export default function PresentationViewer() {
       }
       if (e.key === "ArrowRight" || e.key === " ") {
         e.preventDefault();
-        setCurrent((c) => Math.min(c + 1, slides.length - 1));
+        goNext();
       }
-      if (e.key === "ArrowLeft") setCurrent((c) => Math.max(c - 1, 0));
+      if (e.key === "ArrowLeft") goPrev();
       if (e.key === "Escape" && isFullscreen) {
         document.exitFullscreen?.();
       }
@@ -68,6 +73,24 @@ export default function PresentationViewer() {
     document.addEventListener("fullscreenchange", onChange);
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, []);
+
+  const goNext = () => {
+    setDirection("right");
+    setAnimKey((k) => k + 1);
+    setCurrent((c) => Math.min(c + 1, slides.length - 1));
+  };
+
+  const goPrev = () => {
+    setDirection("left");
+    setAnimKey((k) => k + 1);
+    setCurrent((c) => Math.max(c - 1, 0));
+  };
+
+  const goTo = (i: number) => {
+    setDirection(i > current ? "right" : "left");
+    setAnimKey((k) => k + 1);
+    setCurrent(i);
+  };
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
@@ -92,7 +115,7 @@ export default function PresentationViewer() {
           {slides.map((S, i) => (
             <button
               key={i}
-              onClick={() => { setCurrent(i); setShowGrid(false); }}
+              onClick={() => { goTo(i); setShowGrid(false); }}
               className={`relative aspect-video rounded-lg overflow-hidden border-2 transition-all hover:scale-[1.02] ${
                 i === current ? "border-primary shadow-lg shadow-primary/20" : "border-border hover:border-muted-foreground"
               }`}
@@ -135,7 +158,8 @@ export default function PresentationViewer() {
       {/* Slide area */}
       <div ref={containerRef} className="flex-1 relative flex items-center justify-center overflow-hidden">
         <div
-          className="absolute rounded-lg overflow-hidden shadow-2xl shadow-black/50"
+          key={animKey}
+          className={`absolute rounded-lg overflow-hidden shadow-2xl shadow-black/50 ${direction === "right" ? "slide-enter-right" : "slide-enter-left"}`}
           style={{
             width: SLIDE_W,
             height: SLIDE_H,
@@ -150,16 +174,15 @@ export default function PresentationViewer() {
           <SlideComponent />
         </div>
 
-        {/* Nav buttons */}
         <button
-          onClick={() => setCurrent((c) => Math.max(c - 1, 0))}
+          onClick={goPrev}
           disabled={current === 0}
           className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-card/60 backdrop-blur text-foreground hover:bg-card disabled:opacity-20 transition-all"
         >
           <ChevronLeft size={20} />
         </button>
         <button
-          onClick={() => setCurrent((c) => Math.min(c + 1, slides.length - 1))}
+          onClick={goNext}
           disabled={current === slides.length - 1}
           className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-card/60 backdrop-blur text-foreground hover:bg-card disabled:opacity-20 transition-all"
         >

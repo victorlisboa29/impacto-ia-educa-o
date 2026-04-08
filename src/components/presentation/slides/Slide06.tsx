@@ -2,43 +2,41 @@ import SlideLayout from "../SlideLayout";
 import { Search, TrendingUp, BarChart3, Rocket, ArrowRight } from "lucide-react";
 
 const steps = [
-  { num: "01", title: "Problema\nClaro", desc: "Identifique uma dor real e específica do negócio", color: "text-slide-primary", borderColor: "bg-slide-primary", Icon: Search },
-  { num: "02", title: "Alto Impacto\nBaixa Complexidade", desc: "Priorize o que gera resultado rápido com menor esforço", color: "text-slide-accent", borderColor: "bg-slide-accent", Icon: TrendingUp },
-  { num: "03", title: "Medir\nResultado", desc: "Defina métricas claras antes de implementar", color: "text-slide-magenta", borderColor: "bg-slide-magenta", Icon: BarChart3 },
-  { num: "04", title: "Escalar", desc: "Replique o que funciona para toda a operação", color: "text-slide-green", borderColor: "bg-slide-green", Icon: Rocket },
+  { num: "01", title: "Problema\nClaro", desc: "Identifique uma dor real e específica do negócio", accent: "hsl(270,80%,60%)", Icon: Search },
+  { num: "02", title: "Alto Impacto\nBaixa Complexidade", desc: "Priorize o que gera resultado rápido com menor esforço", accent: "hsl(280,85%,65%)", Icon: TrendingUp },
+  { num: "03", title: "Medir\nResultado", desc: "Defina métricas claras antes de implementar", accent: "hsl(300,80%,60%)", Icon: BarChart3 },
+  { num: "04", title: "Escalar", desc: "Replique o que funciona para toda a operação", accent: "hsl(160,84%,45%)", Icon: Rocket },
 ];
 
 export default function Slide06() {
   return (
-    <SlideLayout variant="light">
-      <div className="px-16 pt-14 h-full">
-        <p className="text-[26px] font-bold tracking-[0.2em] text-slide-primary uppercase">Framework</p>
-        <h2 className="mt-3 text-[54px] font-extrabold text-[hsl(270,100%,8%)]">4 etapas para gerar valor com IA</h2>
+    <SlideLayout>
+      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+        <div style={{ width: "100%", maxWidth: 1600 }}>
 
-        <div className="flex items-start gap-4 mt-10">
-          {steps.map((s, i) => (
-            <div key={s.num} className="flex items-start gap-3 flex-1">
-              <div className="bg-white rounded-2xl shadow-lg shadow-[hsl(270,50%,50%)]/8 overflow-hidden flex-1 border border-[hsl(270,40%,90%)]">
-                <div className={`h-1 ${s.borderColor}`} />
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-[48px] font-black ${s.color}`}>{s.num}</span>
-                    <s.Icon className={`w-8 h-8 ${s.color}`} />
+          <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 10 }}>Framework</p>
+          <h2 style={{ fontSize: 54, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 28, marginTop: 0 }}>4 etapas para gerar valor com IA</h2>
+
+          <div style={{ display: "flex", gap: 16, alignItems: "stretch" }}>
+            {steps.map((s, i) => (
+              <div key={s.num} style={{ display: "flex", alignItems: "stretch", flex: 1, gap: 12 }}>
+                <div style={{ flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, overflow: "hidden" }}>
+                  <div style={{ height: 3, background: s.accent }} />
+                  <div style={{ padding: "24px 26px" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+                      <span style={{ fontSize: 36, fontWeight: 900, color: s.accent, lineHeight: 1 }}>{s.num}</span>
+                      <s.Icon style={{ width: 22, height: 22, color: s.accent }} />
+                    </div>
+                    <h3 style={{ fontSize: 17, fontWeight: 700, color: "white", lineHeight: 1.3, whiteSpace: "pre-line", marginBottom: 10, marginTop: 0 }}>{s.title}</h3>
+                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.55, margin: 0 }}>{s.desc}</p>
                   </div>
-                  <h3 className="text-[28px] font-bold text-[hsl(270,100%,8%)] leading-tight whitespace-pre-line mb-4">
-                    {s.title}
-                  </h3>
-                  <p className="text-[18px] text-slide-text-muted leading-relaxed">{s.desc}</p>
                 </div>
+                {i < 3 && <ArrowRight style={{ width: 18, height: 18, color: "rgba(255,255,255,0.25)", flexShrink: 0, alignSelf: "center" }} />}
               </div>
-              {i < 3 && (
-                <ArrowRight className="w-6 h-6 text-slide-primary-light mt-20 shrink-0" />
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <p className="absolute bottom-14 right-20 text-[20px] text-slide-text-muted">6 / 12</p>
+        </div>
       </div>
     </SlideLayout>
   );

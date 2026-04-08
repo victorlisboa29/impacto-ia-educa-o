@@ -8,34 +8,35 @@ const errors = [
 
 export default function Slide04() {
   return (
-    <SlideLayout variant="light">
-      <div className="px-20 pt-14 h-full">
-        <p className="text-[26px] font-bold tracking-[0.2em] text-slide-primary uppercase">O Erro Mais Comum</p>
-        <h2 className="mt-3 text-[58px] font-extrabold leading-[1.05] text-[hsl(270,100%,8%)]">
-          Três armadilhas que travam<br />o valor da IA
-        </h2>
+    <SlideLayout>
+      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+        <div style={{ width: "100%", maxWidth: 1600 }}>
 
-        <div className="flex flex-col gap-4 mt-10">
-          {errors.map((e) => (
-            <div key={e.num} className="flex items-center bg-white rounded-xl shadow-md shadow-[hsl(270,50%,50%)]/8 overflow-hidden border border-[hsl(270,40%,90%)]">
-              <div className="w-1.5 h-20 bg-slide-amber self-stretch" />
-              <div className="flex items-center gap-6 px-8 py-5 flex-1">
-                <span className="text-[44px] font-black text-slide-primary min-w-[60px]">{e.num}</span>
-                <div>
-                  <h3 className="text-[28px] font-bold text-[hsl(270,100%,8%)]">{e.title}</h3>
-                  <p className="text-[22px] text-slide-text-muted mt-1">{e.desc}</p>
+          <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 10 }}>O Erro Mais Comum</p>
+          <h2 style={{ fontSize: 54, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 32, marginTop: 0 }}>
+            Três armadilhas que travam<br />o valor da IA
+          </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
+            {errors.map((e) => (
+              <div key={e.num} style={{ display: "flex", alignItems: "center", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, overflow: "hidden" }}>
+                <div style={{ width: 4, alignSelf: "stretch", background: "hsl(38,92%,50%)", flexShrink: 0 }} />
+                <div style={{ display: "flex", alignItems: "center", gap: 24, padding: "18px 28px", flex: 1 }}>
+                  <span style={{ fontSize: 36, fontWeight: 900, color: "hsl(270,80%,65%)", minWidth: 52, lineHeight: 1 }}>{e.num}</span>
+                  <div>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "white", margin: 0 }}>{e.title}</h3>
+                    <p style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", margin: "6px 0 0", lineHeight: 1.5 }}>{e.desc}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="absolute bottom-12 left-20 right-20 bg-gradient-to-r from-[hsl(270,80%,15%)] to-[hsl(280,70%,22%)] rounded-xl px-10 py-5">
-          <p className="text-[30px] italic text-white">
-            "Complexidade cedo demais trava o valor."
-          </p>
+          <div style={{ background: "linear-gradient(90deg, hsl(270,80%,18%), hsl(280,70%,24%))", borderRadius: 12, padding: "16px 28px" }}>
+            <p style={{ fontSize: 18, fontStyle: "italic", color: "white", margin: 0 }}>"Complexidade cedo demais trava o valor."</p>
+          </div>
+
         </div>
-        <p className="absolute bottom-12 right-20 text-[20px] text-slide-text-muted">4 / 12</p>
       </div>
     </SlideLayout>
   );

@@ -2,24 +2,23 @@ import SlideLayout from "../SlideLayout";
 
 export default function Slide05() {
   return (
-    <SlideLayout variant="accent">
-      <div className="absolute top-10 right-[-5%] w-[500px] h-[500px] rounded-full border border-white/5" />
-      <div className="absolute top-20 right-0 w-[400px] h-[400px] rounded-full border border-white/5" />
-      {/* Triangle motif */}
-      <div className="absolute bottom-20 right-32 w-0 h-0 border-l-[80px] border-r-[80px] border-b-[140px] border-l-transparent border-r-transparent border-b-white/3" />
+    <SlideLayout>
+      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+        <div style={{ width: "100%", maxWidth: 1600 }}>
 
-      <div className="px-20 flex flex-col justify-center h-full">
-        <h2 className="text-[88px] font-black leading-[0.95] text-foreground tracking-tight">
-          O que funciona<br />na prática
-        </h2>
+          <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(280,100%,82%)", textTransform: "uppercase", marginBottom: 16 }}>Framework</p>
 
-        <div className="w-32 h-1 bg-gradient-to-r from-slide-magenta to-slide-primary mt-10" />
+          <h2 style={{ fontSize: 72, fontWeight: 900, lineHeight: 0.95, color: "white", margin: 0, letterSpacing: "-1px" }}>
+            O que funciona<br />na prática
+          </h2>
 
-        <p className="mt-8 text-[32px] text-slide-accent-light leading-relaxed">
-          Um framework simples para gerar resultado<br />com IA generativa na educação
-        </p>
+          <div style={{ width: 80, height: 3, background: "linear-gradient(90deg, hsl(300,80%,55%), hsl(270,80%,55%))", borderRadius: 2, margin: "28px 0" }} />
 
-        <p className="absolute bottom-14 right-20 text-[20px] text-slide-text-muted">5 / 12</p>
+          <p style={{ fontSize: 24, color: "hsl(280,100%,82%)", lineHeight: 1.5, margin: 0 }}>
+            Um framework simples para gerar resultado<br />com IA generativa na educação
+          </p>
+
+        </div>
       </div>
     </SlideLayout>
   );

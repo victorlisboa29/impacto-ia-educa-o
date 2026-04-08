@@ -2,27 +2,27 @@ import SlideLayout from "../SlideLayout";
 
 export default function Slide11() {
   return (
-    <SlideLayout variant="accent">
-      <div className="absolute -top-10 -left-20 w-[500px] h-[500px] rounded-full bg-slide-magenta/8 blur-3xl" />
+    <SlideLayout>
+      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+        <div style={{ width: "100%", maxWidth: 1600 }}>
 
-      <div className="px-20 flex flex-col justify-center h-full">
-        <p className="text-[26px] font-bold tracking-[0.2em] text-slide-accent-light uppercase mb-10">Mensagem Final</p>
+          <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(280,100%,82%)", textTransform: "uppercase", marginBottom: 20 }}>Mensagem Final</p>
 
-        <h2 className="text-[80px] font-black leading-[0.95] text-foreground">
-          IA não é sobre<br />tecnologia.
-        </h2>
+          <h2 style={{ fontSize: 72, fontWeight: 900, lineHeight: 0.95, color: "white", margin: 0, letterSpacing: "-1px" }}>
+            IA não é sobre<br />tecnologia.
+          </h2>
 
-        <div className="w-32 h-1 bg-gradient-to-r from-slide-magenta to-slide-primary mt-8" />
+          <div style={{ width: 80, height: 3, background: "linear-gradient(90deg, hsl(300,80%,55%), hsl(270,80%,55%))", borderRadius: 2, margin: "24px 0" }} />
 
-        <p className="mt-8 text-[72px] font-black text-slide-magenta-light leading-[0.95]">
-          É sobre execução.
-        </p>
+          <p style={{ fontSize: 64, fontWeight: 900, color: "hsl(300,90%,75%)", lineHeight: 0.95, margin: "0 0 24px", letterSpacing: "-1px" }}>
+            É sobre execução.
+          </p>
 
-        <p className="mt-10 text-[28px] text-slide-text-light leading-relaxed max-w-[900px]">
-          A tecnologia já existe. O que separa quem gera resultado<br />é a capacidade de começar, medir e escalar.
-        </p>
+          <p style={{ fontSize: 20, color: "rgba(255,255,255,0.7)", lineHeight: 1.6, margin: 0, maxWidth: 800 }}>
+            A tecnologia já existe. O que separa quem gera resultado é a capacidade de começar, medir e escalar.
+          </p>
 
-        <p className="absolute bottom-14 right-20 text-[20px] text-slide-text-muted">11 / 12</p>
+        </div>
       </div>
     </SlideLayout>
   );

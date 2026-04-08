@@ -1,35 +1,38 @@
 import SlideLayout from "../SlideLayout";
-import { Sparkles } from "lucide-react";
 
 export default function Slide01() {
   return (
-    <SlideLayout variant="dark">
-      {/* Decorative glows */}
-      <div className="absolute -top-32 right-[-8%] w-[600px] h-[600px] rounded-full bg-slide-accent/10 blur-3xl" />
-      <div className="absolute bottom-[-15%] -left-16 w-[400px] h-[400px] rounded-full bg-slide-magenta/8 blur-2xl" />
+    <SlideLayout>
       {/* Triangle/pyramid motif inspired by Nuage logo */}
       <div className="absolute top-20 right-24 w-0 h-0 border-l-[120px] border-r-[120px] border-b-[200px] border-l-transparent border-r-transparent border-b-slide-primary/5" />
 
-      <div className="px-20 pt-28 h-full flex flex-col">
-        <div className="w-16 h-1 bg-slide-magenta mb-8" />
+      <div className="h-full flex flex-col items-center justify-center text-center px-16 gap-8">
 
-        <h1 className="text-[88px] font-black leading-[0.95] tracking-tight text-foreground">
-          IA na Educação
+        {/* Badge */}
+        <div className="border border-white/20 rounded-full px-5 py-1.5 text-[18px] text-white/70 tracking-wide">
+          Nuage · IA na Educação
+        </div>
+
+        {/* Main title */}
+        <h1 className="text-[80px] font-black leading-[1] tracking-tight">
+          <span className="text-white">IA generativa na educação:</span>
+          <br />
+          <span className="bg-gradient-to-r from-slide-primary via-slide-magenta to-purple-400 bg-clip-text text-transparent">
+            por onde começar para
+          </span>
+          <br />
+          <span className="bg-gradient-to-r from-slide-primary via-slide-magenta to-purple-400 bg-clip-text text-transparent">
+            gerar impacto real
+          </span>
         </h1>
 
-        <p className="mt-8 text-[40px] font-light text-slide-accent-light">
-          Por onde começar para gerar impacto real
-        </p>
-
-        <div className="w-56 h-[3px] bg-gradient-to-r from-slide-primary to-slide-magenta mt-10" />
-
-        <p className="mt-6 text-[28px] text-slide-text-muted">
-          Foco em geração de valor com IA na educação
-        </p>
-
-        <div className="absolute bottom-16 right-20 flex items-center gap-3">
-          <Sparkles className="w-10 h-10 text-slide-magenta-light" />
+        {/* Logos */}
+        <div className="flex items-center gap-10 mt-4 opacity-80">
+          <span className="text-white text-[22px] font-light tracking-[0.3em]">N U A G E</span>
+          <div className="w-px h-8 bg-white/20" />
+          <span className="text-white text-[22px] font-light tracking-widest">aws</span>
         </div>
+
       </div>
     </SlideLayout>
   );
