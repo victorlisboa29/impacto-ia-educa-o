@@ -34,28 +34,27 @@ const beneficios = [
 export default function SlideBeneficios() {
   return (
     <SlideLayout>
-      {/* Centered container — max 1200px, vertically centered */}
       <div style={{
         height: "100%", display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center",
-        padding: "0 160px",
+        padding: "0 120px",
       }}>
-        <div style={{ width: "100%", maxWidth: 1200 }}>
+        <div style={{ width: "100%", maxWidth: 1500 }}>
 
           {/* Title */}
-          <div style={{ marginBottom: 32 }}>
-            <h2 style={{ fontSize: 38, fontWeight: 900, color: "white", lineHeight: 1.15, margin: 0, letterSpacing: "-0.3px" }}>
+          <div style={{ marginBottom: 40 }}>
+            <h2 style={{ fontSize: 48, fontWeight: 900, color: "white", lineHeight: 1.15, margin: 0, letterSpacing: "-0.3px" }}>
               <span>BENEFÍCIOS</span>
               <span style={{ fontWeight: 300 }}> AWS </span>
               <span>DESBLOQUEADOS</span>
               <span style={{ fontWeight: 300 }}> PELA </span>
               <span>NUAGEIT</span>
             </h2>
-            <div style={{ width: 48, height: 3, background: "white", marginTop: 12, borderRadius: 2, opacity: 0.7 }} />
+            <div style={{ width: 60, height: 3, background: "white", marginTop: 16, borderRadius: 2, opacity: 0.7 }} />
           </div>
 
           {/* Cards grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 28 }}>
             {beneficios.map(({ num, title, items }) => (
               <div key={num} style={{ display: "flex", flexDirection: "column" }}>
 
@@ -64,21 +63,21 @@ export default function SlideBeneficios() {
                   background: "hsl(240,55%,24%)",
                   border: "1px solid hsl(240,45%,38%)",
                   borderBottom: "none",
-                  borderRadius: "12px 12px 0 0",
-                  padding: "16px 20px 14px",
-                  display: "flex", alignItems: "flex-start", gap: 14,
+                  borderRadius: "14px 14px 0 0",
+                  padding: "20px 24px 18px",
+                  display: "flex", alignItems: "flex-start", gap: 16,
                 }}>
                   <div style={{
-                    width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
+                    width: 44, height: 44, borderRadius: "50%", flexShrink: 0,
                     background: "hsl(330,85%,50%)",
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 18, fontWeight: 900, color: "white",
+                    fontSize: 22, fontWeight: 900, color: "white",
                     boxShadow: "0 2px 10px rgba(220,30,100,0.45)",
                   }}>
                     {num}
                   </div>
                   <p style={{
-                    color: "white", fontWeight: 800, fontSize: 15,
+                    color: "white", fontWeight: 800, fontSize: 20,
                     lineHeight: 1.35, whiteSpace: "pre-line", margin: 0,
                     letterSpacing: "0.02em",
                   }}>
@@ -91,15 +90,15 @@ export default function SlideBeneficios() {
                   background: "hsl(240,50%,20%)",
                   border: "1px solid hsl(240,45%,38%)",
                   borderTop: "1px solid hsl(240,45%,30%)",
-                  borderRadius: "0 0 12px 12px",
-                  padding: "16px 20px 18px",
+                  borderRadius: "0 0 14px 14px",
+                  padding: "20px 24px 24px",
                   flex: 1,
                 }}>
-                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
+                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
                     {items.map((item) => (
-                      <li key={item} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-                        <span style={{ color: "hsl(330,85%,65%)", fontSize: 14, lineHeight: 1, marginTop: 4, flexShrink: 0 }}>•</span>
-                        <span style={{ color: "rgba(255,255,255,0.80)", fontSize: 14, lineHeight: 1.55 }}>{item}</span>
+                      <li key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                        <span style={{ color: "hsl(330,85%,65%)", fontSize: 18, lineHeight: 1, marginTop: 4, flexShrink: 0 }}>•</span>
+                        <span style={{ color: "rgba(255,255,255,0.80)", fontSize: 18, lineHeight: 1.55 }}>{item}</span>
                       </li>
                     ))}
                   </ul>
