@@ -2,99 +2,103 @@ import SlideLayout from "../SlideLayout";
 import { Shield, Award, Star, Trophy, BookOpen, Users } from "lucide-react";
 
 const cards = [
-  { icon: Shield, title: "Consultoria Especializada", sub: "Parceiro estratégico AWS nível Advanced em TI e Cloud" },
-  { icon: Award, title: "Especialistas Reconhecidos", sub: "Certificados em Networking, Security, DevOps e Educação" },
-  { icon: Star, title: "Selos de Especialidade", sub: "Cobertura em Serverless, Dados e múltiplos serviços AWS" },
-  { icon: Trophy, title: "TOP 10 AWS LATAM", sub: "Reconhecidos pela CIOReview entre os melhores da região" },
-  { icon: BookOpen, title: "Partner of the Year", sub: "Troféu AWS pelo nível de excelência nas entregas" },
-  { icon: Users, title: "Great Place to Work", sub: "Ambiente consultivo, colaborativo e orientado a valor" },
+  { icon: Shield, title: "Consultoria Especializada", sub: "Parceiro AWS nível Advanced" },
+  { icon: Award, title: "Especialistas Reconhecidos", sub: "Certificados em múltiplas áreas" },
+  { icon: Star, title: "Selos de Especialidade", sub: "Serverless, Dados e mais" },
+  { icon: Trophy, title: "TOP 10 AWS LATAM", sub: "Reconhecidos pela CIOReview" },
+  { icon: BookOpen, title: "Partner of the Year", sub: "Troféu AWS de excelência" },
+  { icon: Users, title: "Great Place to Work", sub: "Ambiente orientado a valor" },
 ];
 
 export default function SlideNuage() {
   return (
     <SlideLayout>
-      <div style={{ height: "100%", display: "flex", padding: "60px 80px", gap: 60 }}>
+      {/* Decorative ring */}
+      <div className="absolute animate-spin-slow" style={{
+        top: -100, right: -100, width: 400, height: 400,
+        border: "1px solid rgba(200,100,255,0.06)", borderRadius: "50%",
+      }} />
 
-        {/* LEFT — TOP 3 destaque */}
-        <div style={{ width: 480, flexShrink: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: 20 }}>
+      <div className="relative z-10" style={{
+        width: "100%", height: "100%", boxSizing: "border-box",
+        display: "flex", flexDirection: "column", justifyContent: "center",
+        padding: "50px 140px", gap: 24,
+      }}>
 
-          {/* Logo */}
-          <div style={{ fontSize: 22, fontWeight: 300, letterSpacing: "0.3em", color: "white", marginBottom: 8 }}>
-            N U A G E
+        {/* Header row */}
+        <div className="anim-fade-down delay-200" style={{
+          display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap",
+        }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+            <span style={{ fontSize: 36, fontWeight: 900, color: "white" }}>TOP</span>
+            <span style={{
+              fontSize: 64, fontWeight: 900, lineHeight: 0.85,
+              background: "linear-gradient(135deg, hsl(300,80%,55%), hsl(270,80%,60%))",
+              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+            }}>3</span>
+            <span style={{ fontSize: 28, fontWeight: 900, color: "white" }}>BRASIL</span>
           </div>
-
-          {/* AWS badge */}
-          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
-            <span style={{ color: "#00a8e0", fontWeight: 900, fontSize: 24 }}>aws</span>
-            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, lineHeight: 1.2 }}>partner<br />network</span>
+          <div style={{ width: 1, height: 36, background: "rgba(255,255,255,0.12)" }} />
+          <span style={{ fontSize: 16, fontWeight: 300, letterSpacing: "0.3em", color: "rgba(255,255,255,0.7)" }}>NUAGE</span>
+          <div style={{ flex: 1 }} />
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <span style={{ color: "#00a8e0", fontWeight: 900, fontSize: 16 }}>aws</span>
             <div style={{
               background: "hsl(300,80%,50%)", color: "white",
-              fontSize: 16, fontWeight: 700, padding: "6px 16px", borderRadius: 8, lineHeight: 1.3,
+              fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 5,
             }}>
-              Advanced<br />Consulting Partner
+              Advanced Consulting Partner
             </div>
           </div>
-
-          {/* TOP 3 */}
-          <div style={{ lineHeight: 1 }}>
-            <div style={{ fontSize: 100, fontWeight: 900, color: "white", lineHeight: 1, letterSpacing: "-2px" }}>TOP</div>
-            <div style={{
-              fontSize: 200, fontWeight: 900, lineHeight: 0.85, letterSpacing: "-4px",
-              background: "linear-gradient(135deg, hsl(300,80%,55%) 0%, hsl(270,80%,60%) 100%)",
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-            }}>3</div>
-            <div style={{ fontSize: 80, fontWeight: 900, color: "white", lineHeight: 1, letterSpacing: "-1px", marginTop: 4 }}>BRASIL</div>
-          </div>
-
-          {/* Stats row */}
-          <div style={{ display: "flex", gap: 14, marginTop: 20 }}>
-            {[{ v: "8x", l: "Competências" }, { v: "10x", l: "SDPs" }, { v: "ADV", l: "Partner" }].map(({ v, l }) => (
-              <div key={l} style={{
-                flex: 1, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: 12, padding: "14px 12px", textAlign: "center",
-              }}>
-                <div style={{ fontSize: 28, fontWeight: 900, color: "hsl(300,80%,60%)", lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", marginTop: 6, lineHeight: 1.2 }}>{l}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* DIVIDER */}
-        <div style={{ width: 1, background: "rgba(255,255,255,0.08)", flexShrink: 0 }} />
+        {/* Gradient divider */}
+        <div className="anim-scale-in delay-300" style={{
+          height: 2, borderRadius: 1,
+          background: "linear-gradient(90deg, hsl(300,80%,50%), hsl(270,80%,50%), transparent)",
+          opacity: 0.3,
+        }} />
 
-        {/* RIGHT — cards grid */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
-
-          {/* Section label */}
-          <div style={{ marginBottom: 8 }}>
-            <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>
-              Diferenciais
-            </span>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: 16 }}>
-            {cards.map(({ icon: Icon, title, sub }) => (
-              <div key={title} style={{
-                background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)",
-                borderRadius: 16, padding: "24px 24px", display: "flex", flexDirection: "column", gap: 14,
+        {/* Cards grid 3x2 */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 14 }}>
+          {cards.map(({ icon: Icon, title, sub }, i) => (
+            <div
+              key={title}
+              className="anim-fade-up"
+              style={{
+                background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: 12, padding: "18px 20px",
+                display: "flex", alignItems: "flex-start", gap: 14,
+                animationDelay: `${0.4 + i * 0.08}s`,
+              }}
+            >
+              <div style={{
+                width: 40, height: 40, borderRadius: 10, flexShrink: 0,
+                background: "rgba(200,50,200,0.12)",
+                display: "flex", alignItems: "center", justifyContent: "center",
               }}>
-                <div style={{
-                  width: 48, height: 48, borderRadius: 12,
-                  background: "rgba(200,50,200,0.15)",
-                  display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-                }}>
-                  <Icon style={{ width: 24, height: 24, color: "hsl(300,80%,65%)" }} />
-                </div>
-                <div>
-                  <p style={{ color: "white", fontWeight: 600, fontSize: 20, lineHeight: 1.3, margin: 0 }}>{title}</p>
-                  <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, lineHeight: 1.5, margin: "8px 0 0" }}>{sub}</p>
-                </div>
+                <Icon style={{ width: 18, height: 18, color: "hsl(300,80%,65%)" }} />
               </div>
-            ))}
-          </div>
+              <div>
+                <p style={{ color: "white", fontWeight: 600, fontSize: 16, lineHeight: 1.2, margin: 0 }}>{title}</p>
+                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 13, lineHeight: 1.4, margin: "4px 0 0" }}>{sub}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
+        {/* Stats row */}
+        <div className="anim-fade-up delay-700" style={{ display: "flex", gap: 12 }}>
+          {[{ v: "8x", l: "Competências" }, { v: "10x", l: "SDPs" }, { v: "ADV", l: "Partner Tier" }].map(({ v, l }) => (
+            <div key={l} style={{
+              background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)",
+              borderRadius: 8, padding: "8px 16px", display: "flex", alignItems: "center", gap: 8,
+            }}>
+              <span style={{ fontSize: 18, fontWeight: 900, color: "hsl(300,80%,60%)" }}>{v}</span>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)" }}>{l}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </SlideLayout>
   );
