@@ -11,31 +11,29 @@ const pains = [
 export default function Slide03() {
   return (
     <SlideLayout>
-      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 100px" }}>
+      <div className="relative z-10" style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 100px" }}>
         <div style={{ width: "100%", maxWidth: 1600 }}>
-
-          <p style={{ fontSize: 18, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 12 }}>Dores do Setor</p>
-          <h2 style={{ fontSize: 60, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 40, marginTop: 0 }}>
+          <p className="anim-fade-down delay-200" style={{ fontSize: 18, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 12 }}>Dores do Setor</p>
+          <h2 className="anim-blur-in delay-300" style={{ fontSize: 60, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 40, marginTop: 0 }}>
             Os problemas que precisam<br />de solução agora
           </h2>
-
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 24, marginBottom: 28 }}>
-            {pains.map(({ Icon, title, desc, accent }) => (
-              <div key={title} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, overflow: "hidden" }}>
+            {pains.map(({ Icon, title, desc, accent }, i) => (
+              <div key={title} className="anim-fade-up" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, overflow: "hidden", animationDelay: `${0.4 + i * 0.12}s` }}>
                 <div style={{ height: 4, background: accent }} />
                 <div style={{ padding: "28px 28px" }}>
-                  <Icon style={{ width: 36, height: 36, color: accent, marginBottom: 16 }} />
+                  <div className="animate-float-fast" style={{ animationDelay: `${i * 0.5}s` }}>
+                    <Icon style={{ width: 36, height: 36, color: accent, marginBottom: 16 }} />
+                  </div>
                   <h3 style={{ fontSize: 22, fontWeight: 700, color: "white", marginBottom: 10, marginTop: 0 }}>{title}</h3>
                   <p style={{ fontSize: 18, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, margin: 0 }}>{desc}</p>
                 </div>
               </div>
             ))}
           </div>
-
-          <p style={{ fontSize: 22, fontStyle: "italic", color: "hsl(280,100%,82%)", margin: 0 }}>
+          <p className="anim-fade-up delay-900" style={{ fontSize: 22, fontStyle: "italic", color: "hsl(280,100%,82%)", margin: 0 }}>
             "IA só importa quando resolve problemas reais."
           </p>
-
         </div>
       </div>
     </SlideLayout>
