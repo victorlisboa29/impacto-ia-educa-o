@@ -13,95 +13,89 @@ const cards = [
 export default function SlideNuage() {
   return (
     <SlideLayout>
-      <div style={{ height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "50px 100px", gap: 32 }}>
+      <div style={{
+        position: "absolute", inset: 0,
+        display: "flex", flexDirection: "column", justifyContent: "center",
+        padding: "50px 120px", gap: 28, overflow: "hidden",
+      }}>
 
-        {/* Header row — Logo + TOP 3 + AWS badge */}
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 40 }}>
-
-          {/* TOP 3 BRASIL — compact horizontal */}
-          <div className="anim-fade-left delay-200" style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
-            <span style={{ fontSize: 48, fontWeight: 900, color: "white", letterSpacing: "-1px", lineHeight: 1 }}>TOP</span>
+        {/* Header — TOP 3 + branding in one compact row */}
+        <div className="anim-fade-down delay-200" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+            <span style={{ fontSize: 40, fontWeight: 900, color: "white", lineHeight: 1 }}>TOP</span>
             <span className="anim-count-up delay-500" style={{
-              fontSize: 100, fontWeight: 900, lineHeight: 0.8, letterSpacing: "-3px",
+              fontSize: 80, fontWeight: 900, lineHeight: 0.85,
               background: "linear-gradient(135deg, hsl(300,80%,55%), hsl(270,80%,60%))",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             }}>3</span>
-            <span style={{ fontSize: 36, fontWeight: 900, color: "white", letterSpacing: "-1px", lineHeight: 1 }}>BRASIL</span>
+            <span style={{ fontSize: 32, fontWeight: 900, color: "white", lineHeight: 1 }}>BRASIL</span>
+            <div style={{ width: 1, height: 40, background: "rgba(255,255,255,0.12)", margin: "0 16px" }} />
+            <span style={{ fontSize: 16, fontWeight: 300, letterSpacing: "0.3em", color: "rgba(255,255,255,0.7)" }}>N U A G E</span>
           </div>
-
-          {/* Divider */}
-          <div className="anim-scale-in delay-400" style={{ width: 1, height: 60, background: "rgba(255,255,255,0.12)", flexShrink: 0 }} />
-
-          {/* Branding */}
-          <div className="anim-fade-right delay-300" style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            <span style={{ fontSize: 18, fontWeight: 300, letterSpacing: "0.3em", color: "white" }}>N U A G E</span>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ color: "#00a8e0", fontWeight: 900, fontSize: 18 }}>aws</span>
-              <div style={{
-                background: "hsl(300,80%,50%)", color: "white",
-                fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 5,
-              }}>
-                Advanced Consulting Partner
-              </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ color: "#00a8e0", fontWeight: 900, fontSize: 16 }}>aws</span>
+            <div style={{
+              background: "hsl(300,80%,50%)", color: "white",
+              fontSize: 11, fontWeight: 700, padding: "4px 10px", borderRadius: 5,
+            }}>
+              Advanced Consulting Partner
             </div>
-          </div>
-
-          {/* Spacer */}
-          <div style={{ flex: 1 }} />
-
-          {/* Stats pills */}
-          <div className="anim-fade-right delay-600" style={{ display: "flex", gap: 10 }}>
-            {[{ v: "8x", l: "Competências" }, { v: "10x", l: "SDPs" }, { v: "ADV", l: "Partner" }].map(({ v, l }) => (
-              <div key={l} style={{
-                background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: 8, padding: "8px 16px", display: "flex", alignItems: "center", gap: 8,
-              }}>
-                <span style={{ fontSize: 18, fontWeight: 900, color: "hsl(300,80%,60%)" }}>{v}</span>
-                <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)" }}>{l}</span>
-              </div>
-            ))}
           </div>
         </div>
 
-        {/* Divider line */}
-        <div className="anim-scale-in delay-400" style={{
-          height: 1, background: "linear-gradient(90deg, hsl(300,80%,50%), hsl(270,80%,50%), transparent)",
-          opacity: 0.3,
+        {/* Gradient divider */}
+        <div className="anim-scale-in delay-300" style={{
+          height: 2, borderRadius: 1,
+          background: "linear-gradient(90deg, hsl(300,80%,50%), hsl(270,80%,50%), transparent)",
+          opacity: 0.4,
         }} />
 
-        {/* Cards grid — 3x2 */}
-        <div>
-          <div className="anim-fade-up delay-400" style={{ marginBottom: 14 }}>
-            <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase" }}>
-              Diferenciais
-            </span>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-            {cards.map(({ icon: Icon, title, sub }, i) => (
-              <div
-                key={title}
-                className="anim-fade-up"
-                style={{
-                  background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: 14, padding: "22px 24px",
-                  display: "flex", alignItems: "flex-start", gap: 16,
-                  animationDelay: `${0.5 + i * 0.08}s`,
-                }}
-              >
-                <div style={{
-                  width: 44, height: 44, borderRadius: 11, flexShrink: 0,
-                  background: "rgba(200,50,200,0.12)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                }}>
-                  <Icon style={{ width: 20, height: 20, color: "hsl(300,80%,65%)" }} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <p style={{ color: "white", fontWeight: 600, fontSize: 18, lineHeight: 1.2, margin: 0 }}>{title}</p>
-                  <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 15, lineHeight: 1.4, margin: "6px 0 0" }}>{sub}</p>
-                </div>
+        {/* Section label */}
+        <div className="anim-fade-up delay-400">
+          <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase" }}>
+            Diferenciais
+          </span>
+        </div>
+
+        {/* Cards grid — 3x2 horizontal layout */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+          {cards.map(({ icon: Icon, title, sub }, i) => (
+            <div
+              key={title}
+              className="anim-fade-up"
+              style={{
+                background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: 14, padding: "20px 22px",
+                display: "flex", alignItems: "flex-start", gap: 14,
+                animationDelay: `${0.5 + i * 0.08}s`,
+              }}
+            >
+              <div style={{
+                width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+                background: "rgba(200,50,200,0.12)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <Icon style={{ width: 20, height: 20, color: "hsl(300,80%,65%)" }} />
               </div>
-            ))}
-          </div>
+              <div style={{ minWidth: 0 }}>
+                <p style={{ color: "white", fontWeight: 600, fontSize: 17, lineHeight: 1.2, margin: 0 }}>{title}</p>
+                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 14, lineHeight: 1.4, margin: "5px 0 0" }}>{sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Stats row */}
+        <div className="anim-fade-up delay-800" style={{ display: "flex", gap: 12 }}>
+          {[{ v: "8x", l: "Competências AWS" }, { v: "10x", l: "SDPs Alcançados" }, { v: "ADV", l: "Partner Tier" }].map(({ v, l }) => (
+            <div key={l} style={{
+              background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)",
+              borderRadius: 8, padding: "8px 18px", display: "flex", alignItems: "center", gap: 10,
+            }}>
+              <span style={{ fontSize: 18, fontWeight: 900, color: "hsl(300,80%,60%)" }}>{v}</span>
+              <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)" }}>{l}</span>
+            </div>
+          ))}
         </div>
       </div>
     </SlideLayout>
