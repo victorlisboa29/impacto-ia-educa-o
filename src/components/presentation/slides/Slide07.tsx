@@ -8,25 +8,25 @@ const cols = [
 export default function Slide07() {
   return (
     <SlideLayout>
-      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 100px" }}>
         <div style={{ width: "100%", maxWidth: 1600 }}>
 
-          <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 10 }}>Etapas 1 e 2</p>
-          <h2 style={{ fontSize: 54, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 28, marginTop: 0 }}>
+          <p style={{ fontSize: 18, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 12 }}>Etapas 1 e 2</p>
+          <h2 style={{ fontSize: 60, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 36, marginTop: 0 }}>
             Escolha o problema certo.<br />Busque quick wins.
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
             {cols.map(({ accent, label, items }) => (
-              <div key={label} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, overflow: "hidden" }}>
-                <div style={{ height: 3, background: accent }} />
-                <div style={{ padding: "26px 30px" }}>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: "white", marginBottom: 16, marginTop: 0 }}>{label}</h3>
-                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+              <div key={label} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, overflow: "hidden" }}>
+                <div style={{ height: 4, background: accent }} />
+                <div style={{ padding: "32px 36px" }}>
+                  <h3 style={{ fontSize: 24, fontWeight: 700, color: "white", marginBottom: 20, marginTop: 0 }}>{label}</h3>
+                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
                     {items.map((t) => (
-                      <li key={t} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                        <span style={{ width: 6, height: 6, borderRadius: "50%", background: accent, flexShrink: 0, marginTop: 6 }} />
-                        <span style={{ fontSize: 16, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>{t}</span>
+                      <li key={t} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                        <span style={{ width: 8, height: 8, borderRadius: "50%", background: accent, flexShrink: 0, marginTop: 8 }} />
+                        <span style={{ fontSize: 20, color: "rgba(255,255,255,0.75)", lineHeight: 1.5 }}>{t}</span>
                       </li>
                     ))}
                   </ul>

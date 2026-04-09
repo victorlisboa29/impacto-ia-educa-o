@@ -11,28 +11,28 @@ const pains = [
 export default function Slide03() {
   return (
     <SlideLayout>
-      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 100px" }}>
         <div style={{ width: "100%", maxWidth: 1600 }}>
 
-          <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 10 }}>Dores do Setor</p>
-          <h2 style={{ fontSize: 54, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 32, marginTop: 0 }}>
+          <p style={{ fontSize: 18, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 12 }}>Dores do Setor</p>
+          <h2 style={{ fontSize: 60, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 40, marginTop: 0 }}>
             Os problemas que precisam<br />de solução agora
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 24, marginBottom: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 24, marginBottom: 28 }}>
             {pains.map(({ Icon, title, desc, accent }) => (
-              <div key={title} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, overflow: "hidden" }}>
-                <div style={{ height: 3, background: accent }} />
-                <div style={{ padding: "24px 26px" }}>
-                  <Icon style={{ width: 28, height: 28, color: accent, marginBottom: 12 }} />
-                  <h3 style={{ fontSize: 17, fontWeight: 700, color: "white", marginBottom: 8, marginTop: 0 }}>{title}</h3>
-                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, margin: 0 }}>{desc}</p>
+              <div key={title} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, overflow: "hidden" }}>
+                <div style={{ height: 4, background: accent }} />
+                <div style={{ padding: "28px 28px" }}>
+                  <Icon style={{ width: 36, height: 36, color: accent, marginBottom: 16 }} />
+                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "white", marginBottom: 10, marginTop: 0 }}>{title}</h3>
+                  <p style={{ fontSize: 18, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, margin: 0 }}>{desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <p style={{ fontSize: 18, fontStyle: "italic", color: "hsl(280,100%,82%)", margin: 0 }}>
+          <p style={{ fontSize: 22, fontStyle: "italic", color: "hsl(280,100%,82%)", margin: 0 }}>
             "IA só importa quando resolve problemas reais."
           </p>
 
