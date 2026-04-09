@@ -13,88 +13,91 @@ const cards = [
 export default function SlideNuage() {
   return (
     <SlideLayout>
-      <div style={{ height: "100%", display: "flex", padding: "60px 80px", gap: 60 }}>
+      <div style={{ height: "100%", display: "flex", padding: "60px 80px", gap: 50 }}>
 
-        {/* LEFT — TOP 3 destaque */}
-        <div style={{ width: 480, flexShrink: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: 20 }}>
+        {/* LEFT — branding + TOP 3 */}
+        <div style={{ width: 420, flexShrink: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
 
           {/* Logo */}
-          <div style={{ fontSize: 22, fontWeight: 300, letterSpacing: "0.3em", color: "white", marginBottom: 8 }}>
+          <div className="anim-fade-left delay-200" style={{ fontSize: 20, fontWeight: 300, letterSpacing: "0.3em", color: "white", marginBottom: 4 }}>
             N U A G E
           </div>
 
           {/* AWS badge */}
-          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
-            <span style={{ color: "#00a8e0", fontWeight: 900, fontSize: 24 }}>aws</span>
-            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, lineHeight: 1.2 }}>partner<br />network</span>
+          <div className="anim-fade-left delay-300" style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+            <span style={{ color: "#00a8e0", fontWeight: 900, fontSize: 22 }}>aws</span>
+            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 14, lineHeight: 1.2 }}>partner<br />network</span>
             <div style={{
               background: "hsl(300,80%,50%)", color: "white",
-              fontSize: 16, fontWeight: 700, padding: "6px 16px", borderRadius: 8, lineHeight: 1.3,
+              fontSize: 13, fontWeight: 700, padding: "5px 14px", borderRadius: 7, lineHeight: 1.3,
             }}>
               Advanced<br />Consulting Partner
             </div>
           </div>
 
-          {/* TOP 3 */}
-          <div style={{ lineHeight: 1 }}>
-            <div style={{ fontSize: 100, fontWeight: 900, color: "white", lineHeight: 1, letterSpacing: "-2px" }}>TOP</div>
-            <div style={{
-              fontSize: 200, fontWeight: 900, lineHeight: 0.85, letterSpacing: "-4px",
+          {/* TOP 3 — animated counter effect */}
+          <div className="anim-fade-up delay-400" style={{ lineHeight: 1 }}>
+            <div style={{ fontSize: 72, fontWeight: 900, color: "white", lineHeight: 1, letterSpacing: "-2px" }}>TOP</div>
+            <div className="anim-count-up delay-600" style={{
+              fontSize: 140, fontWeight: 900, lineHeight: 0.85, letterSpacing: "-4px",
               background: "linear-gradient(135deg, hsl(300,80%,55%) 0%, hsl(270,80%,60%) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             }}>3</div>
-            <div style={{ fontSize: 80, fontWeight: 900, color: "white", lineHeight: 1, letterSpacing: "-1px", marginTop: 4 }}>BRASIL</div>
+            <div style={{ fontSize: 60, fontWeight: 900, color: "white", lineHeight: 1, letterSpacing: "-1px", marginTop: 4 }}>BRASIL</div>
           </div>
 
           {/* Stats row */}
-          <div style={{ display: "flex", gap: 14, marginTop: 20 }}>
+          <div className="anim-fade-up delay-800" style={{ display: "flex", gap: 12, marginTop: 16 }}>
             {[{ v: "8x", l: "Competências" }, { v: "10x", l: "SDPs" }, { v: "ADV", l: "Partner" }].map(({ v, l }) => (
               <div key={l} style={{
                 flex: 1, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: 12, padding: "14px 12px", textAlign: "center",
+                borderRadius: 10, padding: "12px 10px", textAlign: "center",
               }}>
-                <div style={{ fontSize: 28, fontWeight: 900, color: "hsl(300,80%,60%)", lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", marginTop: 6, lineHeight: 1.2 }}>{l}</div>
+                <div style={{ fontSize: 24, fontWeight: 900, color: "hsl(300,80%,60%)", lineHeight: 1 }}>{v}</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 5, lineHeight: 1.2 }}>{l}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* DIVIDER */}
-        <div style={{ width: 1, background: "rgba(255,255,255,0.08)", flexShrink: 0 }} />
+        <div className="anim-scale-in delay-300" style={{ width: 1, background: "rgba(255,255,255,0.08)", flexShrink: 0 }} />
 
         {/* RIGHT — cards grid */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 16 }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 14, minWidth: 0 }}>
 
           {/* Section label */}
-          <div style={{ marginBottom: 8 }}>
-            <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>
+          <div className="anim-fade-right delay-300" style={{ marginBottom: 6 }}>
+            <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>
               Diferenciais
             </span>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: 16 }}>
-            {cards.map(({ icon: Icon, title, sub }) => (
-              <div key={title} style={{
-                background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)",
-                borderRadius: 16, padding: "24px 24px", display: "flex", flexDirection: "column", gap: 14,
-              }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: 14 }}>
+            {cards.map(({ icon: Icon, title, sub }, i) => (
+              <div
+                key={title}
+                className={`anim-scale-in delay-${(i + 4) * 100}`}
+                style={{
+                  background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)",
+                  borderRadius: 14, padding: "20px 20px", display: "flex", flexDirection: "column", gap: 12,
+                }}
+              >
                 <div style={{
-                  width: 48, height: 48, borderRadius: 12,
+                  width: 42, height: 42, borderRadius: 10,
                   background: "rgba(200,50,200,0.15)",
                   display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
                 }}>
-                  <Icon style={{ width: 24, height: 24, color: "hsl(300,80%,65%)" }} />
+                  <Icon style={{ width: 20, height: 20, color: "hsl(300,80%,65%)" }} />
                 </div>
                 <div>
-                  <p style={{ color: "white", fontWeight: 600, fontSize: 20, lineHeight: 1.3, margin: 0 }}>{title}</p>
-                  <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, lineHeight: 1.5, margin: "8px 0 0" }}>{sub}</p>
+                  <p style={{ color: "white", fontWeight: 600, fontSize: 17, lineHeight: 1.3, margin: 0 }}>{title}</p>
+                  <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 14, lineHeight: 1.5, margin: "6px 0 0" }}>{sub}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </SlideLayout>
   );
