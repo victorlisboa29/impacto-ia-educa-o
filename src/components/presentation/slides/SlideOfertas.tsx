@@ -60,33 +60,51 @@ const cols = [
 export default function SlideOfertas() {
   return (
     <SlideLayout>
-      <div className="h-full flex flex-col items-center justify-center px-16 py-8 gap-5">
+      <div style={{
+        height: "100%", display: "flex", flexDirection: "column",
+        alignItems: "center", justifyContent: "center",
+        padding: "48px 80px", gap: 28,
+      }}>
 
         {/* Logo */}
-        <div className="w-full text-white text-[16px] font-light tracking-[0.3em]">N U A G E</div>
+        <div style={{ width: "100%", fontSize: 20, fontWeight: 300, letterSpacing: "0.3em", color: "white" }}>
+          N U A G E
+        </div>
 
         {/* Title */}
-        <h2 className="text-[48px] font-black tracking-tight leading-none text-center">
-          <span className="text-white">OFERTAS E SERVIÇOS </span>
-          <span className="text-slide-magenta">NUAGEIT</span>
+        <h2 style={{ fontSize: 52, fontWeight: 900, letterSpacing: "-0.5px", lineHeight: 1, textAlign: "center", margin: 0 }}>
+          <span style={{ color: "white" }}>OFERTAS E SERVIÇOS </span>
+          <span style={{ color: "hsl(300,80%,55%)" }}>NUAGEIT</span>
         </h2>
 
         {/* Columns */}
-        <div className="flex gap-2 w-full">
+        <div style={{ display: "flex", gap: 12, width: "100%" }}>
           {cols.map(({ Icon, title, highlight, items }) => (
             <div
               key={title}
-              className={`flex-1 flex flex-col items-start rounded-lg px-4 py-4 gap-2 ${
-                highlight ? "bg-[hsl(270,55%,20%)] border border-slide-primary/25" : ""
-              }`}
+              style={{
+                flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start",
+                borderRadius: 12, padding: "20px 18px", gap: 12,
+                ...(highlight ? {
+                  background: "hsl(270,55%,20%)",
+                  border: "1px solid hsla(270,80%,50%,0.25)",
+                } : {}),
+              }}
             >
-              <div className="w-[52px] h-[52px] rounded-full border-2 border-slide-magenta flex items-center justify-center mb-1">
-                <Icon className="w-6 h-6 text-slide-magenta" />
+              <div style={{
+                width: 56, height: 56, borderRadius: "50%",
+                border: "2px solid hsl(300,80%,55%)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                marginBottom: 4,
+              }}>
+                <Icon style={{ width: 26, height: 26, color: "hsl(300,80%,55%)" }} />
               </div>
-              <p className="text-white font-black text-[12px] leading-tight tracking-wide uppercase">{title}</p>
-              <ul className="flex flex-col gap-1.5 mt-1">
+              <p style={{ color: "white", fontWeight: 900, fontSize: 16, lineHeight: 1.2, letterSpacing: "0.04em", textTransform: "uppercase", margin: 0 }}>
+                {title}
+              </p>
+              <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 6 }}>
                 {items.map((item) => (
-                  <li key={item} className="text-white/60 text-[12px] leading-snug">{item}</li>
+                  <li key={item} style={{ color: "rgba(255,255,255,0.65)", fontSize: 16, lineHeight: 1.4 }}>{item}</li>
                 ))}
               </ul>
             </div>
@@ -94,12 +112,18 @@ export default function SlideOfertas() {
         </div>
 
         {/* Bottom banners */}
-        <div className="flex flex-col gap-2 w-full">
-          <div className="border border-white/20 rounded-md px-6 py-2.5 text-center">
-            <p className="text-white font-bold text-[13px] tracking-[0.2em]">SEGURANÇA E CONFORMIDADE</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%" }}>
+          <div style={{
+            border: "1px solid rgba(255,255,255,0.2)", borderRadius: 10,
+            padding: "12px 24px", textAlign: "center",
+          }}>
+            <p style={{ color: "white", fontWeight: 700, fontSize: 18, letterSpacing: "0.2em", margin: 0 }}>SEGURANÇA E CONFORMIDADE</p>
           </div>
-          <div className="bg-slide-magenta rounded-md px-6 py-3 text-center">
-            <p className="text-white font-black text-[14px] tracking-[0.2em]">INTELIGÊNCIA ARTIFICIAL GENERATIVA</p>
+          <div style={{
+            background: "hsl(300,80%,50%)", borderRadius: 10,
+            padding: "14px 24px", textAlign: "center",
+          }}>
+            <p style={{ color: "white", fontWeight: 900, fontSize: 20, letterSpacing: "0.2em", margin: 0 }}>INTELIGÊNCIA ARTIFICIAL GENERATIVA</p>
           </div>
         </div>
 
