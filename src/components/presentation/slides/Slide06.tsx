@@ -11,27 +11,27 @@ const steps = [
 export default function Slide06() {
   return (
     <SlideLayout>
-      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 80px" }}>
+      <div style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "0 100px" }}>
         <div style={{ width: "100%", maxWidth: 1600 }}>
 
-          <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 10 }}>Framework</p>
-          <h2 style={{ fontSize: 54, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 28, marginTop: 0 }}>4 etapas para gerar valor com IA</h2>
+          <p style={{ fontSize: 18, fontWeight: 700, letterSpacing: "0.2em", color: "hsl(270,80%,65%)", textTransform: "uppercase", marginBottom: 12 }}>Framework</p>
+          <h2 style={{ fontSize: 60, fontWeight: 800, lineHeight: 1.1, color: "white", marginBottom: 36, marginTop: 0 }}>4 etapas para gerar valor com IA</h2>
 
-          <div style={{ display: "flex", gap: 16, alignItems: "stretch" }}>
+          <div style={{ display: "flex", gap: 20, alignItems: "stretch" }}>
             {steps.map((s, i) => (
-              <div key={s.num} style={{ display: "flex", alignItems: "stretch", flex: 1, gap: 12 }}>
-                <div style={{ flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, overflow: "hidden" }}>
-                  <div style={{ height: 3, background: s.accent }} />
-                  <div style={{ padding: "24px 26px" }}>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
-                      <span style={{ fontSize: 36, fontWeight: 900, color: s.accent, lineHeight: 1 }}>{s.num}</span>
-                      <s.Icon style={{ width: 22, height: 22, color: s.accent }} />
+              <div key={s.num} style={{ display: "flex", alignItems: "stretch", flex: 1, gap: 16 }}>
+                <div style={{ flex: 1, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 14, overflow: "hidden" }}>
+                  <div style={{ height: 4, background: s.accent }} />
+                  <div style={{ padding: "28px 28px" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+                      <span style={{ fontSize: 44, fontWeight: 900, color: s.accent, lineHeight: 1 }}>{s.num}</span>
+                      <s.Icon style={{ width: 28, height: 28, color: s.accent }} />
                     </div>
-                    <h3 style={{ fontSize: 17, fontWeight: 700, color: "white", lineHeight: 1.3, whiteSpace: "pre-line", marginBottom: 10, marginTop: 0 }}>{s.title}</h3>
-                    <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.55, margin: 0 }}>{s.desc}</p>
+                    <h3 style={{ fontSize: 22, fontWeight: 700, color: "white", lineHeight: 1.3, whiteSpace: "pre-line", marginBottom: 12, marginTop: 0 }}>{s.title}</h3>
+                    <p style={{ fontSize: 18, color: "rgba(255,255,255,0.55)", lineHeight: 1.55, margin: 0 }}>{s.desc}</p>
                   </div>
                 </div>
-                {i < 3 && <ArrowRight style={{ width: 18, height: 18, color: "rgba(255,255,255,0.25)", flexShrink: 0, alignSelf: "center" }} />}
+                {i < 3 && <ArrowRight style={{ width: 22, height: 22, color: "rgba(255,255,255,0.25)", flexShrink: 0, alignSelf: "center" }} />}
               </div>
             ))}
           </div>
