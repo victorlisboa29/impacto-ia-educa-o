@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight, Maximize, Minimize, Grid } from "lucide-reac
 
 import Slide01 from "./slides/Slide01";
 import SlideNuage from "./slides/SlideNuage";
-import SlideOfertas from "./slides/SlideOfertas";
 import SlideBeneficios from "./slides/SlideBeneficios";
 import Slide02 from "./slides/Slide02";
 import Slide03 from "./slides/Slide03";
@@ -17,7 +16,7 @@ import Slide10 from "./slides/Slide10";
 import Slide11 from "./slides/Slide11";
 import Slide12 from "./slides/Slide12";
 
-const slides = [Slide01, SlideNuage, SlideOfertas, SlideBeneficios, Slide02, Slide03, Slide04, Slide05, Slide06, Slide07, Slide08, Slide09, Slide10, Slide11, Slide12];
+const slides = [Slide01, SlideNuage, SlideBeneficios, Slide02, Slide03, Slide04, Slide05, Slide06, Slide07, Slide08, Slide09, Slide10, Slide11, Slide12];
 
 const SLIDE_W = 1920;
 const SLIDE_H = 1080;
@@ -181,6 +180,9 @@ export default function PresentationViewer() {
             marginTop: -(SLIDE_H / 2),
             transform: `scale(${scale})`,
             transformOrigin: "center center",
+            // Expose scale as CSS var so slides can use it if needed
+            ["--slide-scale" as string]: scale,
+            fontSize: `${scale * 16}px`, // root font-size scales with slide
           }}
         >
           <SlideComponent />
