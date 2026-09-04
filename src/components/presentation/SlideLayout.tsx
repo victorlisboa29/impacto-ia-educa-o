@@ -1,66 +1,145 @@
 import { ReactNode } from "react";
-
-type SlideVariant = "dark" | "light" | "accent";
+import { cn } from "@/lib/utils";
 
 interface SlideLayoutProps {
   children: ReactNode;
-  variant?: SlideVariant;
+  /** Optional eyebrow shown above the title */
+  eyebrow?: string;
+  title?: ReactNode;
+  /** Short single conclusion line placed under the title */
+  lead?: string;
+  index?: number;
+  total?: number;
+  variant?: "default" | "hero";
   className?: string;
 }
 
-export default function SlideLayout({ children, className = "" }: SlideLayoutProps) {
+export const SlideLayout = ({
+  children,
+  eyebrow,
+  title,
+  lead,
+  index,
+  total,
+  variant = "default",
+  className,
+}: SlideLayoutProps) => {
   return (
-    <div className={`relative w-full h-full overflow-hidden bg-[#07030f] ${className}`}>
+    <section
+      className={cn(
+        "relative flex h-full w-full flex-col overflow-hidden stage-bg text-foreground",
+        variant === "hero" ? "px-[140px] py-[110px]" : "px-[100px] py-[80px]",
+        className,
+      )}
+    >
+      {/* Ambient brand shapes */}
+      <div className="pointer-events-none absolute inset-0 dot-grid opacity-[0.35]" />
+      <div className="pointer-events-none absolute -right-[220px] -top-[220px] h-[620px] w-[620px] rounded-full bg-[hsl(var(--nuage-violet)/0.22)] blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-[280px] -left-[180px] h-[560px] w-[560px] rounded-full bg-[hsl(var(--nuage-magenta)/0.16)] blur-[150px]" />
+      <div className="pointer-events-none absolute left-0 top-0 h-[6px] w-full brand-rule opacity-80" />
 
-      {/* AURORA LAYER */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute -top-[20%] -left-[10%] w-[900px] h-[700px] rounded-full opacity-30 animate-aurora-1"
-          style={{ background: "radial-gradient(ellipse, hsl(270,80%,40%) 0%, transparent 65%)", filter: "blur(80px)" }}
-        />
-        <div
-          className="absolute -top-[15%] right-[-5%] w-[700px] h-[600px] rounded-full opacity-20 animate-aurora-2"
-          style={{ background: "radial-gradient(ellipse, hsl(250,90%,55%) 0%, transparent 65%)", filter: "blur(90px)" }}
-        />
-        <div
-          className="absolute bottom-[-20%] right-[-5%] w-[800px] h-[600px] rounded-full opacity-25 animate-aurora-3"
-          style={{ background: "radial-gradient(ellipse, hsl(300,80%,45%) 0%, transparent 65%)", filter: "blur(80px)" }}
-        />
-        <div
-          className="absolute bottom-[-10%] -left-[5%] w-[600px] h-[500px] rounded-full opacity-20 animate-aurora-1"
-          style={{ background: "radial-gradient(ellipse, hsl(240,70%,35%) 0%, transparent 65%)", filter: "blur(70px)", animationDelay: "3s" }}
-        />
-        <div
-          className="absolute top-[20%] left-[35%] w-[500px] h-[400px] rounded-full opacity-10 animate-aurora-2"
-          style={{ background: "radial-gradient(ellipse, hsl(280,100%,60%) 0%, transparent 70%)", filter: "blur(100px)", animationDelay: "1.5s" }}
-        />
+      <div className="relative z-10 flex h-full w-full flex-col">
+        {(eyebrow || title) && (
+          <header className="mb-[44px] shrink-0">
+            {eyebrow && (
+              <p className="mb-[14px] font-display text-[20px] font-semibold uppercase tracking-[0.42em] text-[hsl(var(--nuage-magenta))]">
+                {eyebrow}
+              </p>
+            )}
+            {title && (
+              <h2 className="max-w-[1500px] font-display text-[58px] font-extrabold leading-[1.06] tracking-tight text-foreground">
+                {title}
+              </h2>
+            )}
+            {lead && (
+              <p className="mt-[18px] max-w-[1300px] text-[24px] leading-snug text-[hsl(var(--nuage-lilac))]">
+                {lead}
+              </p>
+            )}
+          </header>
+        )}
+
+        <div className="min-h-0 flex-1">{children}</div>
+
+        {index !== undefined && (
+          <footer className="mt-[36px] flex shrink-0 items-center justify-between text-[18px] tracking-[0.28em] text-muted-foreground">
+            <span className="font-display font-semibold uppercase">Nuage · Educação</span>
+            <span className="font-display font-semibold">
+              {String(index).padStart(2, "0")}
+              <span className="opacity-40"> / {String(total ?? 12).padStart(2, "0")}</span>
+            </span>
+          </footer>
+        )}
       </div>
-
-      {/* GRID LINES */}
-      <div
-        className="absolute inset-0 opacity-[0.045] pointer-events-none"
-        style={{
-          backgroundImage: "linear-gradient(hsl(270,50%,70%) 1px, transparent 1px), linear-gradient(90deg, hsl(270,50%,70%) 1px, transparent 1px)",
-          backgroundSize: "90px 90px",
-        }}
-      />
-
-      {/* DOT MATRIX */}
-      <div
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(circle, hsl(280,70%,80%) 1.2px, transparent 1.2px)",
-          backgroundSize: "45px 45px",
-        }}
-      />
-
-      {/* VIGNETTE */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 90% 85% at 50% 50%, transparent 40%, rgba(7,3,15,0.75) 100%)" }}
-      />
-
-      <div className="relative z-10 w-full h-full">{children}</div>
-    </div>
+    </section>
   );
-}
+};
+
+/* ---------- Shared slide primitives (the deck's visual language) ---------- */
+
+export const Card = ({
+  children,
+  accent = false,
+  className,
+}: {
+  children: ReactNode;
+  accent?: boolean;
+  className?: string;
+}) => (
+  <div
+    className={cn(
+      "rounded-[24px] p-[32px]",
+      accent ? "glass-card-accent" : "glass-card",
+      className,
+    )}
+  >
+    {children}
+  </div>
+);
+
+export const Kpi = ({
+  value,
+  label,
+  sub,
+  accent = false,
+}: {
+  value: string;
+  label: string;
+  sub?: string;
+  accent?: boolean;
+}) => (
+  <Card accent={accent} className="flex flex-col justify-center">
+    <p
+      className={cn(
+        "font-display text-[62px] font-extrabold leading-none",
+        accent ? "brand-text" : "text-foreground",
+      )}
+    >
+      {value}
+    </p>
+    <p className="mt-[14px] font-display text-[21px] font-semibold uppercase tracking-[0.14em] text-foreground">
+      {label}
+    </p>
+    {sub && <p className="mt-[8px] text-[18px] leading-snug text-muted-foreground">{sub}</p>}
+  </Card>
+);
+
+export const Pill = ({ children, accent = false }: { children: ReactNode; accent?: boolean }) => (
+  <span
+    className={cn(
+      "inline-flex items-center rounded-full px-[18px] py-[8px] text-[17px] font-semibold",
+      accent
+        ? "bg-[hsl(var(--nuage-magenta)/0.22)] text-[hsl(var(--nuage-magenta))] ring-1 ring-[hsl(var(--nuage-magenta)/0.5)]"
+        : "bg-[hsl(var(--nuage-violet)/0.18)] text-[hsl(var(--nuage-lilac))] ring-1 ring-[hsl(var(--nuage-violet)/0.4)]",
+    )}
+  >
+    {children}
+  </span>
+);
+
+export const Takeaway = ({ children }: { children: ReactNode }) => (
+  <div className="flex items-center gap-[22px] rounded-[20px] border border-[hsl(var(--nuage-violet)/0.35)] bg-[hsl(var(--nuage-violet)/0.12)] px-[32px] py-[24px]">
+    <span className="h-[46px] w-[6px] shrink-0 rounded-full brand-rule" />
+    <p className="font-display text-[25px] font-semibold leading-snug text-foreground">{children}</p>
+  </div>
+);
